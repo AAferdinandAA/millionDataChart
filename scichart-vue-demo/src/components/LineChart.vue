@@ -17,7 +17,7 @@ const props = withDefaults(
   }>(),
   {
     dataSize: 5_000_000,
-    samplePoints: 5_000,
+    samplePoints: 2000,
   }
 );
 
@@ -87,7 +87,7 @@ onMounted(() => {
         symbol: "none",
         sampling: "lttb",
         large: true,
-        largeThreshold: 1000,
+        largeThreshold: props.samplePoints,
         progressive: 2000,
         lineStyle: { width: 1, join: "bevel" },
         animation: false,
@@ -154,7 +154,7 @@ onMounted(() => {
       // 回到全览 → 直接要预览数据（1000点）
       worker?.postMessage({
         action: "resetToPreview",
-        samplePoints: 1000,
+        samplePoints: props.samplePoints,
       });
       return;
     }

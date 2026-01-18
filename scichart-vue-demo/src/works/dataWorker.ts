@@ -115,7 +115,7 @@ self.onmessage = async function (event: MessageEvent<any>) {
       (self as any).fullData = data;
 
       // 初次加载：发送极简预览
-      sendBuffer(lttbDownsample(data, 1000));
+      sendBuffer(lttbDownsample(data, samplePoints));
       return;
     }
 
